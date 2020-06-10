@@ -1,0 +1,77 @@
+body {
+    font-family: "Rubik", sans-serif;
+    background-color: #1f1f1f;
+    color: azure;
+  }
+/*  @media screen and (prefers-color-scheme: light) {
+    body {
+      background-color: white;
+      color: black;
+    }
+  }
+  */
+
+  section{
+      text-align: center;
+      margin-top: 40px;
+  }
+
+  p{
+      text-align: center;
+      font-size: 1.2em;
+  }
+
+
+
+
+ nav a{
+     font-size: 1.4em;
+     color: aliceblue;
+     font-weight: normal;
+ }
+
+
+
+ .intro{
+     margin-top: 15em;
+     margin-bottom: 10em;
+ }
+
+ .card bg-dark{
+     width: fit-content;
+ }
+
+ .card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: .5rem;
+}
+
+.cardBody{
+    margin: 1em;
+}
+
+.text-center{
+
+    margin: 1em;
+}
+
+.card-text{
+    width: fit-content;
+}
+
+
+
+.card-deck .card {
+    margin: 1rem;
+  }
+
+  .col-lg-6{
+      padding: 10 0em;
+  }
+
+ #profileImage{
+     border-radius: 45%;
+ }
+
+
