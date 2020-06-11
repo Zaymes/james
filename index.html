@@ -35,14 +35,6 @@
                                 <a href="#contact" class="nav-link">Contact</a>
                             </li>
                         </ul>
-                        <ul class="nav navbar-nav ml-auto">
-                                <a href="#" class="nav-link"><i class="fa fa-camera-retro fa-lg"></i></a>
-                            <li>
-                                <a href="#" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a>
-                            <li>
-                                <a href="#" class="nav-link"><i class="fa fa-pinterest fa-lg"></i></a>
-                            </li>
-                        </ul>
                     </div>
                     <!--/.nav-collapse -->
                 </div>
@@ -66,7 +58,6 @@
                     <div class="col-lg-6">
                         <h1>About Me</h1>
                         <article>
-                            <p id="follows"></p>
                             <p>Here is my github <a id="github_url" style="color: blanchedalmond;">Zaymes</a></p>
                             <p id="repos"></p>
                             <p>I am James Shrestha currently pursuing Bachelor in Electronics and Communication Engineering.
@@ -83,7 +74,6 @@
         </main>
         <footer>
             <div class="container"></div>
-
         </footer>
 
 
@@ -97,11 +87,7 @@
             console.log(data)
             console.log(Object.values(data))
             
-
-            let followersCount = data['followers']
-            let followsInfo = `I have been followed by ${followersCount} people`
             document.getElementById('profileImage').src = data['avatar_url']
-            document.getElementById('follows').textContent = followsInfo
             document.getElementById('fullName').textContent = data['name']
             document.getElementById('github_url').href = data['html_url']
 
@@ -111,23 +97,7 @@
         fetch('https://api.github.com/users/zaymes/repos')
         .then(response => response.json())
         .then(function(data){
-            console.log(data)
 
-
-
-            /*
-            let datas = Object.values(data);
-            var x ='';
-
-            for (x in datas) {
-                var y = document.createElement("P");
-                var t = document.createTextNode(`this is value : ${data[x].name}`);
-                y.appendChild(t);
-                document.getElementById("projects").appendChild(y);
-            }
-            */
-
-    
 
             let cardColumn = document.createElement('div');
             cardColumn.className = 'row';
@@ -137,6 +107,10 @@
             data.forEach(makeCard);
 
             document.getElementById("projects").appendChild(cardColumn);
+
+
+
+
 
             function makeCard(item){
 
@@ -170,50 +144,10 @@
             }
         
 
-
-            /*
-            let datas = Object.values(data);
-            var x ='';
-
-            let cardColumn = document.createElement('div');
-            cardColumn.className = 'card-deck';
-
-            document.getElementById('projects').innerHTML = "<h2>My Project<h2>"
-
-            for (x in datas) {
-
-                let card = document.createElement("div");
-                card.className = 'card bg-dark'
-
-                let cardBody = document.createElement('div');
-                cardBody.className = 'card-body text-center'
-
-                let title = document.createElement('h5');
-                title.innerText = data[x].name;
-                title.className = 'card-text';
-
-                let language = document.createElement('p');
-                language.innerText = `Language: ${data[x].language}`;
-
-                let visit = document.createElement('a')
-                visit.href = data[x].html_url
-                visit.innerText = 'visit repo'
-                visit.setAttribute('target', '_blank')
-
-                cardBody.appendChild(title);
-                cardBody.appendChild(language);
-                cardBody.appendChild(visit);
-                card.appendChild(cardBody);
-                cardColumn.append(card);
-
-            }
-            document.getElementById("projects").appendChild(cardColumn);
-            
-            */
-            
-        
-
         })
+
+
+
     </script>
 </body>
 </html>
